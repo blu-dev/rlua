@@ -1,3 +1,4 @@
+#![feature(c_variadic)]
 use std::mem;
 use std::os::raw::{c_char, c_int, c_void};
 use std::ptr;

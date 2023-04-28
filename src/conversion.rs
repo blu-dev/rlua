@@ -342,8 +342,6 @@ lua_convert_int!(i32);
 lua_convert_int!(u32);
 lua_convert_int!(i64);
 lua_convert_int!(u64);
-lua_convert_int!(i128);
-lua_convert_int!(u128);
 lua_convert_int!(isize);
 lua_convert_int!(usize);
 
@@ -367,8 +365,8 @@ macro_rules! lua_convert_float {
                     .and_then(|n| {
                         // We want out of range f32 to return an error instead
                         // of inf.
-                        if std::mem::size_of::<$x>() < std::mem::size_of::<f64>() {
-                            if n.is_finite() && n.abs() > (<$x>::MAX as f64) {
+                        if std::mem::size_of::<$x>() < std::mem::size_of::<f32>() {
+                            if n.is_finite() && n.abs() > (<$x>::MAX as f32) {
                                 return Err(Error::FromLuaConversionError {
                                     from: ty,
                                     to: stringify!($x),
