@@ -542,7 +542,12 @@ macro_rules! inc_top {
 }
 // this is not in smash big sadge
 pub static mut lua_ident: [::std::os::raw::c_char; 0usize] = [];
-pub static mut luaO_nilobject: TValue = unsafe { std::mem::zeroed() };
+pub static mut luaO_nilobject: TValue = TValue {
+    value: Value {
+        object: std::ptr::null_mut(),
+    },
+    tt: 0,
+};
 
 pub fn index2addr(L: *mut lua_State, idx: ::std::os::raw::c_int) -> *mut TValue {
     unsafe {
