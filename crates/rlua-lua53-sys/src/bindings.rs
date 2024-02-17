@@ -670,7 +670,7 @@ pub fn lua_rotate(L: *mut lua_State, idx: ::std::os::raw::c_int, n: ::std::os::r
     }
 }
 
-#[skyline::from_offset(0x38f29d0)]
+#[skyline::from_offset(0x38f29d0 + 0xc80)]
 pub fn lua_copy(L: *mut lua_State, fromidx: ::std::os::raw::c_int, toidx: ::std::os::raw::c_int);
 
 pub fn lua_checkstack(L: *mut lua_State, n: ::std::os::raw::c_int) -> ::std::os::raw::c_int {
@@ -681,7 +681,7 @@ pub fn lua_xmove(from: *mut lua_State, to: *mut lua_State, n: ::std::os::raw::c_
     unimplemented!()
 }
 
-#[skyline::from_offset(0x38f2b70)]
+#[skyline::from_offset(0x38f2b70 + 0xc80)]
 pub fn lua_isnumber(L: *mut lua_State, idx: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
 
 pub fn lua_isstring(L: *mut lua_State, idx: ::std::os::raw::c_int) -> ::std::os::raw::c_int {
@@ -715,14 +715,14 @@ pub fn lua_typename(L: *mut lua_State, tp: ::std::os::raw::c_int) -> *const ::st
     unimplemented!()
 }
 
-#[skyline::from_offset(0x38f2e10)]
+#[skyline::from_offset(0x38f2e10 + 0xc80)]
 pub fn lua_tonumberx(
     L: *mut lua_State,
     idx: ::std::os::raw::c_int,
     isnum: *mut ::std::os::raw::c_int,
 ) -> lua_Number;
 
-#[skyline::from_offset(0x38f2f80)]
+#[skyline::from_offset(0x38f2f80 + 0xc80)]
 pub fn lua_tointegerx(
     L: *mut lua_State,
     idx: ::std::os::raw::c_int,
@@ -740,7 +740,7 @@ pub fn lua_toboolean(L: *mut lua_State, idx: ::std::os::raw::c_int) -> ::std::os
     }
 }
 
-#[skyline::from_offset(0x38f3100)]
+#[skyline::from_offset(0x38f3100 + 0xc80)]
 pub fn lua_tolstring(
     L: *mut lua_State,
     idx: ::std::os::raw::c_int,
@@ -785,7 +785,7 @@ pub fn lua_rawequal(
     unimplemented!()
 }
 
-#[skyline::from_offset(0x38f2c90)]
+#[skyline::from_offset(0x38f2c90 + 0xc80)]
 pub fn lua_compare(
     L: *mut lua_State,
     idx1: ::std::os::raw::c_int,
@@ -878,7 +878,7 @@ pub fn lua_gettable(L: *mut lua_State, idx: ::std::os::raw::c_int) -> ::std::os:
     unimplemented!()
 }
 
-#[skyline::from_offset(0x38f3710)]
+#[skyline::from_offset(0x38f3710 + 0xc80)]
 pub fn auxgetstr(
     L: *mut lua_State,
     value: *mut TValue,
@@ -921,10 +921,10 @@ pub fn lua_rawgetp(
     unimplemented!()
 }
 
-#[skyline::from_offset(0x391ca20)]
+#[skyline::from_offset(0x391ca20 + 0xc80)]
 pub fn luaH_new(L: *mut lua_State) -> *mut ::std::os::raw::c_void;
 
-#[skyline::from_offset(0x391be90)]
+#[skyline::from_offset(0x391be90 + 0xc80)]
 pub fn luaH_resize(
     L: *mut lua_State,
     table: *mut ::std::os::raw::c_void,
@@ -969,7 +969,7 @@ pub fn lua_settable(L: *mut lua_State, idx: ::std::os::raw::c_int) {
     unimplemented!()
 }
 
-#[skyline::from_offset(0x38f3d60)]
+#[skyline::from_offset(0x38f3d60 + 0xc80)]
 pub fn auxsetstr(L: *mut lua_State, value: *mut TValue, k: *const ::std::os::raw::c_char);
 
 pub fn lua_setfield(
@@ -1000,7 +1000,7 @@ pub fn lua_rawsetp(
     unimplemented!()
 }
 
-#[skyline::from_offset(0x38f45d0)]
+#[skyline::from_offset(0x38f45d0 + 0xc80)]
 pub fn lua_setmetatable(
     L: *mut lua_State,
     objindex: ::std::os::raw::c_int,
@@ -1368,25 +1368,25 @@ fn bindgen_test_layout_lua_Debug() {
     );
 }
 
-#[skyline::from_offset(0x38ff040)]
+#[skyline::from_offset(0x38ff040 + 0xc80)]
 pub extern "C" fn luaopen_base(L: *mut lua_State) -> ::std::os::raw::c_int;
 
-#[skyline::from_offset(0x39044a0)]
+#[skyline::from_offset(0x39044a0 + 0xc80)]
 pub extern "C" fn luaopen_package(L: *mut lua_State) -> ::std::os::raw::c_int;
 
-#[skyline::from_offset(0x3901840)]
+#[skyline::from_offset(0x3901840 + 0xc80)]
 pub extern "C" fn luaopen_coroutine(L: *mut lua_State) -> ::std::os::raw::c_int;
 
-#[skyline::from_offset(0x391cd00)]
+#[skyline::from_offset(0x391cd00 + 0xc80)]
 pub extern "C" fn luaopen_table(L: *mut lua_State) -> ::std::os::raw::c_int;
 
-#[skyline::from_offset(0x39163d0)]
+#[skyline::from_offset(0x39163d0 + 0xc80)]
 pub extern "C" fn luaopen_string(L: *mut lua_State) -> ::std::os::raw::c_int;
 
-#[skyline::from_offset(0x39024e0)]
+#[skyline::from_offset(0x39024e0 + 0xc80)]
 pub extern "C" fn luaopen_math(L: *mut lua_State) -> ::std::os::raw::c_int;
 
-#[skyline::from_offset(0x3920270)]
+#[skyline::from_offset(0x3920270 + 0xc80)]
 pub extern "C" fn luaopen_utf8(L: *mut lua_State) -> ::std::os::raw::c_int;
 
 pub extern "C" fn luaopen_io(L: *mut lua_State) -> ::std::os::raw::c_int {
@@ -2599,7 +2599,7 @@ pub fn luaL_checkany(L: *mut lua_State, arg: ::std::os::raw::c_int) {
     unimplemented!()
 }
 
-#[skyline::from_offset(0x38f5c30)]
+#[skyline::from_offset(0x38f5c30 + 0xc80)]
 pub fn luaL_newmetatable(
     L: *mut lua_State,
     tname: *const ::std::os::raw::c_char,
@@ -2708,7 +2708,7 @@ pub fn luaL_gsub(
     unimplemented!()
 }
 
-#[skyline::from_offset(0x38f7ee0)]
+#[skyline::from_offset(0x38f7ee0 + 0xc80)]
 pub fn luaL_setfuncs(L: *mut lua_State, l: *const luaL_Reg, nup: ::std::os::raw::c_int);
 
 pub fn luaL_getsubtable(
@@ -2728,7 +2728,7 @@ pub fn luaL_traceback(
     unimplemented!()
 }
 
-#[skyline::from_offset(0x38f8600)]
+#[skyline::from_offset(0x38f8600 + 0xc80)]
 pub fn luaL_requiref(
     L: *mut lua_State,
     modname: *const ::std::os::raw::c_char,
