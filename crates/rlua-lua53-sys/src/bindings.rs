@@ -810,19 +810,22 @@ pub fn lua_pushinteger(L: *mut lua_State, n: lua_Integer) {
     }
 }
 
+#[skyline::from_offset(0x38f4450)]
 pub fn lua_pushlstring(
     L: *mut lua_State,
     s: *const ::std::os::raw::c_char,
     len: usize,
-) -> *const ::std::os::raw::c_char {
-    unimplemented!()
-}
+) -> *const ::std::os::raw::c_char;
 
 pub fn lua_pushstring(
     L: *mut lua_State,
     s: *const ::std::os::raw::c_char,
 ) -> *const ::std::os::raw::c_char {
-    unimplemented!()
+    unsafe {
+        let c_str = std::ffi::CStr::from_ptr(s);
+        let ptr = lua_pushlstring(L, s, c_str.to_bytes().len());
+        ptr
+    }
 }
 
 pub fn lua_pushvfstring(
